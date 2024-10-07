@@ -12,7 +12,7 @@ export default function SignUp() {
   }
   const handleSubmit = async(e) => {
     e.preventDefault()
-    if(!formData.username || !formData.email || !formData.password)
+    if( !formData.username || !formData.email || !formData.password)
     {
       return setErrorMessage('Please fill out all the fields!')
     }
@@ -26,8 +26,9 @@ export default function SignUp() {
       })
       const data = await res.json()
       if (data.success === false)
-      {return setErrorMessage(data.message)}
-      setLoading(false)
+      {
+        return setErrorMessage(data.message)
+      }
       if (res.ok) {
         navigate('/sign-in')
       }
